@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Entradas de {{ autor.nombre }} {{ autor.apellido }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/estilos.css' %}">
+</head>
+<body>
+    <h1>Entradas de {{ autor.nombre }} {{ autor.apellido }}</h1>
+    <ul>
+        {% for entrada in entradas %}
+            <li>
+                <h2>{{ entrada.titulo }}</h2>
+                <p>{{ entrada.texto }}</p>
+                <p>Fecha de creación: {{ entrada.fecha_creacion }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'lista_entradas' %}">Volver a la lista de entradas</a>
+</body>
+</html>
